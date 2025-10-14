@@ -1,10 +1,11 @@
 import { MessageCircle } from "lucide-react"
-
+import { useAppSelector } from "../store"
 import { Header } from "./header"
 import { Module } from "./module"
 import { Video } from "./video"
 
 export function Player() {
+	const modules = useAppSelector(({ player }) => player.course.modules)
 	return (
 		<div className="flex items-center justify-center h-screen">
 			<div className="flex w-5xl flex-col gap-6">
@@ -25,26 +26,14 @@ export function Player() {
 					</div>
 
 					<aside className="w-80 absolute top-0 divide-y-2 divide-zinc-900 bottom-0 right-0 border-l border-zinc-800 bg-zinc-900 overflow-y-scroll scrollbar scrollbar-track-zinc-950 scrollbar-thumb-zinc-800">
-						<Module
-							title="Desvendando o Redux"
-							amountOfLessons={12}
-							moduleIndex={0}
-						/>
-						<Module
-							title="Desvendando o Redux"
-							amountOfLessons={12}
-							moduleIndex={1}
-						/>
-						<Module
-							title="Desvendando o Redux"
-							amountOfLessons={12}
-							moduleIndex={2}
-						/>
-						<Module
-							title="Desvendando o Redux"
-							amountOfLessons={12}
-							moduleIndex={3}
-						/>
+						{modules.map(({ id, title, lessons }, index) => (
+							<Module
+								key={id}
+								title={title}
+								amountOfLessons={lessons.length}
+								moduleIndex={index}
+							/>
+						))}
 					</aside>
 				</main>
 			</div>
