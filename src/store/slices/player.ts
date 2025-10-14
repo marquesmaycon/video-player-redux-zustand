@@ -1,5 +1,10 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
+import {
+	createAsyncThunk,
+	createSlice,
+	type PayloadAction,
+} from "@reduxjs/toolkit"
 
+import { api } from "../../lib/axios"
 import { useAppSelector } from ".."
 
 type Course = {
@@ -11,24 +16,28 @@ type Course = {
 }
 
 export type PlayerState = {
-	course: Course | null
-	currentModuleIndex: number
-	currentLessonIndex: number
-}
+		course: Course | null
+		currentModuleIndex: number
+		currentLessonIndex: number
+		loading: boolean
+	}	
 
 const initialState: PlayerState = {
 	course: null,
 	currentModuleIndex: 0,
 	currentLessonIndex: 0,
+	loading: true,
 }
+
+export const loadCourse = createAsyncThunk("player/load", async () => {
+	const { data } = await api.get<PlayerState["course"]>("/course")
+	return data
+})
 
 export const playerSlice = createSlice({
 	name: "player",
 	initialState: initialState,
 	reducers: {
-		start: (state, action: PayloadAction<Course>) => {
-			state.course = action.payload
-		},
 		play: (state, action: PayloadAction<[number, number]>) => {
 			state.currentModuleIndex = action.payload[0]
 			state.currentLessonIndex = action.payload[1]
@@ -51,10 +60,19 @@ export const playerSlice = createSlice({
 			}
 		},
 	},
+	extraReducers: (builder) => {
+		builder.addCase(loadCourse.pending, (state) => {
+			state.loading = true
+		})
+		builder.addCase(loadCourse.fulfilled, (state, action) => {
+			state.course = action.payload
+			state.loading = false
+		})
+	},
 })
 
 export const player = playerSlice.reducer
-export const { play, next, start } = playerSlice.actions
+export const { play, next } = playerSlice.actions
 
 export const useCurrentLesson = () => {
 	return useAppSelector(({ player }) => {

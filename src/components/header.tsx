@@ -1,7 +1,13 @@
+import { useAppSelector } from "../store"
 import { useCurrentLesson } from "../store/slices/player"
 
 export function Header() {
 	const { currentModule, currentLesson } = useCurrentLesson()
+	const loading = useAppSelector(({ player }) => player.loading)
+
+	if (loading) {
+		return <h3 className="text-2xl font-bold mb-6">Carregando...</h3>
+	}
 	
 	return (
 		<div className="flex flex-col gap-1">
