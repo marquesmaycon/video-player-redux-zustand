@@ -1,11 +1,20 @@
 import { MessageCircle } from "lucide-react"
+import { useEffect } from "react"
+
 import { useAppSelector } from "../store"
+import { useCurrentLesson } from "../store/slices/player"
 import { Header } from "./header"
 import { Module } from "./module"
 import { Video } from "./video"
 
 export function Player() {
 	const modules = useAppSelector(({ player }) => player.course.modules)
+	const { currentLesson } = useCurrentLesson()
+
+	useEffect(() => {
+		document.title = `Assistindo: ${currentLesson.title}`
+	}, [currentLesson])
+
 	return (
 		<div className="flex items-center justify-center h-screen">
 			<div className="flex w-5xl flex-col gap-6">
