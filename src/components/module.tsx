@@ -27,7 +27,7 @@ export function Module({ title, amountOfLessons, moduleIndex }: ModuleProps) {
 		({ player }) => player.course.modules[moduleIndex].lessons,
 	)
 	return (
-		<Collapsible className="group">
+		<Collapsible className="group" defaultOpen={moduleIndex === 0}>
 			<CollapsibleTrigger
 				type="button"
 				className="w-full flex items-center gap-3 bg-zinc-800 p-4"
