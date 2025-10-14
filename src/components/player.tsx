@@ -1,18 +1,35 @@
 import { MessageCircle } from "lucide-react"
 import { useEffect } from "react"
-
+import { useDispatch } from "react-redux"
+import { api } from "../lib/axios"
 import { useAppSelector } from "../store"
-import { useCurrentLesson } from "../store/slices/player"
+
+import {
+	type PlayerState,
+	start,
+	useCurrentLesson,
+} from "../store/slices/player"
 import { Header } from "./header"
 import { Module } from "./module"
 import { Video } from "./video"
 
 export function Player() {
-	const modules = useAppSelector(({ player }) => player.course.modules)
+	const dispatch = useDispatch()
+	const modules = useAppSelector(({ player }) => player.course?.modules)
 	const { currentLesson } = useCurrentLesson()
 
 	useEffect(() => {
-		document.title = `Assistindo: ${currentLesson.title}`
+		api.get<PlayerState["course"]>("/course").then(({ data }) => {
+			if (data) {
+				dispatch(start(data))
+			}
+		})
+	}, [dispatch])
+
+	useEffect(() => {
+		if (currentLesson) {
+			document.title = `Assistindo: ${currentLesson.title}`
+		}
 	}, [currentLesson])
 
 	return (
@@ -35,7 +52,7 @@ export function Player() {
 					</div>
 
 					<aside className="w-80 absolute top-0 divide-y-2 divide-zinc-900 bottom-0 right-0 border-l border-zinc-800 bg-zinc-900 overflow-y-scroll scrollbar scrollbar-track-zinc-950 scrollbar-thumb-zinc-800">
-						{modules.map(({ id, title, lessons }, index) => (
+						{modules?.map(({ id, title, lessons }, index) => (
 							<Module
 								key={id}
 								title={title}

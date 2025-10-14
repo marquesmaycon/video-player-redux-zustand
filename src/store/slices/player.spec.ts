@@ -23,7 +23,8 @@ describe("player slice", () => {
 		const state = player(
 			{
 				...initialState,
-				currentLessonIndex: initialState.course.modules[0].lessons.length - 1,
+				currentLessonIndex:
+					initialState.course?.modules[0].lessons.length ?? 0 - 1,
 			},
 			next(),
 		)
@@ -33,9 +34,9 @@ describe("player slice", () => {
 	})
 
 	it("should not update module or lesson if there is no next lesson", () => {
-		const lastModuleIndex = initialState.course.modules.length - 1
+		const lastModuleIndex = initialState.course?.modules.length ?? 0 - 1
 		const lastLessonIndex =
-			initialState.course.modules[lastModuleIndex].lessons.length - 1
+			initialState.course?.modules[lastModuleIndex].lessons.length ?? 0 - 1
 		const state = player(
 			{
 				...initialState,
