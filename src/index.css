@@ -1,7 +1,10 @@
 @import "tailwindcss";
+@plugin "tailwind-scrollbar";
+
+* {
+	@apply scrollbar scrollbar-track-zinc-950 scrollbar-thumb-zinc-800;
+}
 
 body {
 	@apply bg-zinc-950 text-zinc-50 antialiased;
 }
-
-@plugin 'tailwind-scrollbar';
