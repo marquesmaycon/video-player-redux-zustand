@@ -16,10 +16,16 @@ type ModuleProps = {
 }
 
 export function Module({ title, amountOfLessons, moduleIndex }: ModuleProps) {
+	const dispatch = useDispatch()
+	const { currentModuleIndex, currentLessonIndex } = useAppSelector(
+		({ player }) => {
+			const { currentModuleIndex, currentLessonIndex } = player
+			return { currentModuleIndex, currentLessonIndex }
+		},
+	)
 	const lessons = useAppSelector(
 		({ player }) => player.course.modules[moduleIndex].lessons,
 	)
-	const dispatch = useDispatch()
 	return (
 		<Collapsible className="group">
 			<CollapsibleTrigger
@@ -43,6 +49,10 @@ export function Module({ title, amountOfLessons, moduleIndex }: ModuleProps) {
 							key={title}
 							title={title}
 							duration={duration}
+							active={
+								moduleIndex === currentModuleIndex &&
+								lessonIndex === currentLessonIndex
+							}
 							onPlay={() => dispatch(play([moduleIndex, lessonIndex]))}
 						/>
 					))}
