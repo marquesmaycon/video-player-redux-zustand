@@ -25,17 +25,18 @@ export function Player() {
 					<Header />
 					<button
 						type="button"
-						className="flex items-center gap-2 rounded bg-violet-500 px-3 py-2 text-sm font-medium text-white hover:bg-violet-600 transition-colors"
+						className="flex items-center gap-2 rounded bg-emerald-500 data-[player=zustand]:bg-purple-400 px-3 py-2 text-sm font-medium text-white hover:bg-emerald-600 data-[player=zustand]:hover:bg-purple-500 transition-colors duration-300"
 						onClick={() =>
 							setPlayer((p) => (p === "redux" ? "zustand" : "redux"))
 						}
+						data-player={player}
 					>
 						<img src={icon} alt={player} className="h-8 w-8" />
 						Trocar para {isRedux ? "Zustand" : "Redux"}
 					</button>
 				</div>
 
-				<main className="relative flex flex-col lg:flex-row overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900 shadow">
+				<main className="relative w-full max-w-3xl lg:max-w-full mx-auto flex flex-col lg:flex-row overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900 shadow">
 					<PlayerComponent />
 				</main>
 			</div>

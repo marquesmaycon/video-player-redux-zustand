@@ -1,5 +1,5 @@
 {
-  "name": "video-player-redux",
+  "name": "video-player-redux-zustand",
   "private": true,
   "version": "0.0.0",
   "type": "module",
