@@ -5,9 +5,9 @@ import {
 } from "@radix-ui/react-collapsible"
 import { ChevronDown } from "lucide-react"
 
-import { useAppDispatch, useAppSelector } from "../store"
-import { play } from "../store/slices/player"
-import { Lesson } from "./lesson"
+import { useAppDispatch, useAppSelector } from "../../store"
+import { play } from "../../store/slices/player"
+import { Lesson } from "../lesson"
 
 type ModuleProps = {
 	title: string
