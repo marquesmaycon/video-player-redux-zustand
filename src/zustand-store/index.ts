@@ -1,5 +1,4 @@
 import { create } from "zustand"
-
 import { api } from "../lib/axios"
 
 type Course = {
@@ -20,7 +19,7 @@ export type PlayerState = {
 	next: () => void
 }
 
-export const useStore = create<PlayerState>((set, get) => ({
+export const usePlayerStore = create<PlayerState>((set, get) => ({
 	course: null,
 	currentModuleIndex: 0,
 	currentLessonIndex: 0,
@@ -60,3 +59,14 @@ export const useStore = create<PlayerState>((set, get) => ({
 		}
 	},
 }))
+
+export const useCurrentLesson = () => {
+	const currentModuleIndex = usePlayerStore((state) => state.currentModuleIndex)
+	const currentLessonIndex = usePlayerStore((state) => state.currentLessonIndex)
+	const course = usePlayerStore((state) => state.course)
+
+	const currentModule = course?.modules[currentModuleIndex]
+	const currentLesson = currentModule?.lessons[currentLessonIndex]
+
+	return { currentModule, currentLesson }
+}

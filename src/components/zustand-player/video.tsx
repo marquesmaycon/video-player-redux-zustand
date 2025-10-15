@@ -1,12 +1,13 @@
 import { Loader2 } from "lucide-react"
 import ReactPlayer from "react-player"
-import { useAppDispatch, useAppSelector } from "../../store"
-import { next, useCurrentLesson } from "../../store/slices/player"
+
+import { useCurrentLesson, usePlayerStore } from "../../zustand-store"
 
 export function Video() {
-	const dispatch = useAppDispatch()
 	const { currentLesson } = useCurrentLesson()
-	const loading = useAppSelector(({ player }) => player.loading)
+
+	const loading = usePlayerStore(({ loading }) => loading)
+	const next = usePlayerStore(({ next }) => next)
 
 	return (
 		<div className="w-full bg-zinc-950 aspect-video flex">
@@ -19,7 +20,7 @@ export function Video() {
 					controls
 					playing
 					src={`https://www.youtube.com/watch?v=${currentLesson?.id}`}
-					onEnded={() => dispatch(next())}
+					onEnded={() => next()}
 				/>
 			)}
 		</div>
