@@ -148,6 +148,10 @@ Este projeto demonstra de forma prática as **diferenças entre Redux e Zustand*
 • **Flexibilidade**: Menos opiniões sobre estrutura
 • **Modern**: Aproveita hooks e patterns modernos do React
 
+## 🚀 Rocketseat
+
+Este projeto foi desenvolvido durante as aulas da **[Rocketseat](https://rocketseat.com.br)**, uma plataforma de educação em tecnologia que oferece conteúdo de alta qualidade para desenvolvedores.
+
 ## 👨‍💻 Autor
 
 <div align="center">
