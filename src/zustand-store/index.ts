@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { api } from "../lib/axios"
+import { courseMock } from "../data/course-mock"
 
 type Course = {
 	modules: Array<{
@@ -27,9 +27,10 @@ export const usePlayerStore = create<PlayerState>((set, get) => ({
 	load: async () => {
 		set({ loading: true })
 
-		const { data } = await api.get<PlayerState["course"]>("/course")
+		// Simulando delay de API
+		await new Promise((resolve) => setTimeout(resolve, 500))
 
-		set({ course: data, loading: false })
+		set({ course: courseMock, loading: false })
 	},
 	play: (indexes: [number, number]) => {
 		set({

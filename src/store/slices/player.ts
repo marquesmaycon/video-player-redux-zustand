@@ -4,7 +4,7 @@ import {
 	type PayloadAction,
 } from "@reduxjs/toolkit"
 
-import { api } from "../../lib/axios"
+import { courseMock } from "../../data/course-mock"
 import { useAppSelector } from ".."
 
 type Course = {
@@ -30,8 +30,9 @@ const initialState: PlayerState = {
 }
 
 export const loadCourse = createAsyncThunk("player/load", async () => {
-	const { data } = await api.get<PlayerState["course"]>("/course")
-	return data
+	// Simulando delay de API
+	await new Promise((resolve) => setTimeout(resolve, 500))
+	return courseMock
 })
 
 export const playerSlice = createSlice({
