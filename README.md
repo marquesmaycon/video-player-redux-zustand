@@ -1,77 +1,68 @@
 # Video Player Redux Zustand
 
-Player de video interativo criado para comparar gerenciamento de estado com Redux Toolkit e Zustand em React.
+Um player de vídeo interativo desenvolvido com React e TypeScript, demonstrando a implementação de gerenciamento de estado com Redux e Zustand
 
-![React 19](https://img.shields.io/badge/React_19-20232A?style=flat-square)
-![TypeScript](https://img.shields.io/badge/TypeScript-20232A?style=flat-square)
-![Vite](https://img.shields.io/badge/Vite-20232A?style=flat-square)
-![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-20232A?style=flat-square)
-![Zustand](https://img.shields.io/badge/Zustand-20232A?style=flat-square)
-![React Player](https://img.shields.io/badge/React_Player-20232A?style=flat-square)
-![Axios](https://img.shields.io/badge/Axios-20232A?style=flat-square)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-20232A?style=flat-square)
-![Vitest](https://img.shields.io/badge/Vitest-20232A?style=flat-square)
+![React](https://img.shields.io/badge/React-20232A?style=plastic&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=plastic&logo=typescript&logoColor=fff)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=plastic&logo=vite&logoColor=fff)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=plastic&logo=tailwindcss&logoColor=fff)
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=plastic&logo=radixui&logoColor=fff)
+![Redux](https://img.shields.io/badge/Redux-764ABC?style=plastic&logo=redux&logoColor=fff)
+![Zustand](https://img.shields.io/badge/Zustand-443E38?style=plastic&logo=react&logoColor=fff)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=plastic&logo=axios&logoColor=fff)
+![Biome](https://img.shields.io/badge/Biome-60A5FA?style=plastic&logo=biome&logoColor=fff)
 
 ## Demo
 
-Projeto ao vivo: [video-player-redux-zustand.vercel.app](https://video-player-redux-zustand.vercel.app)
+Acesse: [video-player-redux-zustand.vercel.app](https://video-player-redux-zustand.vercel.app)
 
 ## Sobre
 
-Player de video interativo criado para comparar gerenciamento de estado com Redux Toolkit e Zustand em React.
-
-O objetivo deste repositorio e demonstrar uma implementacao clara, organizada e facil de avaliar, com documentacao objetiva para recrutadores e pessoas tecnicas entenderem rapidamente o contexto do projeto.
+Um player de vídeo interativo desenvolvido com React e TypeScript, demonstrando a implementação de gerenciamento de estado com Redux e Zustand
 
 ## Funcionalidades
 
-- Player de video.
-- Lista de aulas.
-- Comparacao Redux/Zustand.
-- Estado global.
-- Mock server com JSON Server.
-- Testes com Vitest.
+- Player de video interativo em React.
+- Comparacao pratica de gerenciamento de estado com Redux e Zustand.
+- Controles de reproducao e interface responsiva.
+- Experiencia focada em componentizacao.
 
 ## Stack
 
-- **React 19**
-- **TypeScript**
-- **Vite**
-- **Redux Toolkit**
-- **Zustand**
-- **React Player**
-- **Axios**
-- **Tailwind CSS**
-- **Vitest**
+- React
+- TypeScript
+- Vite
+- TailwindCSS
+- Radix UI
+- Redux
+- Zustand
+- Axios
+- Biome
 
 ## Como executar
 
 ```bash
-git clone https://github.com/marquesmaycon/video-player-redux-zustand.git
-cd video-player-redux-zustand
 npm install
 npm run dev
 ```
 
 ## Scripts disponiveis
 
-- `npm run dev`
-- `npm run build`
-- `npm run lint`
-- `npm run preview`
-- `npm run server`
-- `npm run test`
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run test
+npm run lint
+```
 
 ## Destaques tecnicos
 
-- Excelente projeto para discutir state management.
-- Compara duas abordagens populares.
-- Boa demonstracao de arquitetura frontend.
+- Uso conjunto de Redux e Zustand em um caso pratico.
+- Integracao com Axios para consumo de dados.
+- Projeto Vite com TypeScript e TailwindCSS.
 
-## Repositorio
-
-[Acessar repositorio no GitHub](https://github.com/marquesmaycon/video-player-redux-zustand)
-
----
+## Autor
 
 <div align="center">
   <img src="https://github.com/marquesmaycon.png" width="100px" style="border-radius: 50%"/>
@@ -80,7 +71,8 @@ npm run dev
   <br/>
   <br/>
 
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mayconhenrique/)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjU2JyBoZWlnaHQ9JzI1NicgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSd4TWlkWU1pZCcgdmlld0JveD0nMCAwIDI1NiAyNTYnPjxwYXRoIGQ9J00yMTguMTIzIDIxOC4xMjdoLTM3LjkzMXYtNTkuNDAzYzAtMTQuMTY1LS4yNTMtMzIuNC0xOS43MjgtMzIuNC0xOS43NTYgMC0yMi43NzkgMTUuNDM0LTIyLjc3OSAzMS4zNjl2NjAuNDNoLTM3LjkzVjk1Ljk2N2gzNi40MTN2MTYuNjk0aC41MWEzOS45MDcgMzkuOTA3IDAgMCAxIDM1LjkyOC0xOS43MzNjMzguNDQ1IDAgNDUuNTMzIDI1LjI4OCA0NS41MzMgNTguMTg2bC0uMDE2IDY3LjAxM1pNNTYuOTU1IDc5LjI3Yy0xMi4xNTcuMDAyLTIyLjAxNC05Ljg1Mi0yMi4wMTYtMjIuMDA5LS4wMDItMTIuMTU3IDkuODUxLTIyLjAxNCAyMi4wMDgtMjIuMDE2IDEyLjE1Ny0uMDAzIDIyLjAxNCA5Ljg1MSAyMi4wMTYgMjIuMDA4QTIyLjAxMyAyMi4wMTMgMCAwIDEgNTYuOTU1IDc5LjI3bTE4Ljk2NiAxMzguODU4SDM3Ljk1Vjk1Ljk2N2gzNy45N3YxMjIuMTZaTTIzNy4wMzMuMDE4SDE4Ljg5QzguNTgtLjA5OC4xMjUgOC4xNjEtLjAwMSAxOC40NzF2MjE5LjA1M2MuMTIyIDEwLjMxNSA4LjU3NiAxOC41ODIgMTguODkgMTguNDc0aDIxOC4xNDRjMTAuMzM2LjEyOCAxOC44MjMtOC4xMzkgMTguOTY2LTE4LjQ3NFYxOC40NTRjLS4xNDctMTAuMzMtOC42MzUtMTguNTg4LTE4Ljk2Ni0xOC40NTMnIGZpbGw9JyNmZmYnLz48L3N2Zz4K)](https://www.linkedin.com/in/mayconhenrique/)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/marquesmaycon)
   [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:mayconmarquesh@gmail.com)
+  [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white)](https://wa.me/5544991173753)
 </div>
